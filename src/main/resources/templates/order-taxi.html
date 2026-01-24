@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head}"></head>
+<body>
+<header th:replace="~{fragments/commons::nav}"></header>
+<main>
+    <form class="welcome add-offer-form"
+          th:action="@{/rides}"
+          th:object="${rideDto}"
+          method="POST">
+
+    <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Order your ride</span></h1>
+
+
+        <div class="form-group">
+            <div class="text-white label-holder d-flex justify-content-center">
+                <label for="from" class="h4 mb-2">From</label>
+            </div>
+            <select class="browser-default custom-select" id="from" th:field="*{beginCity}">
+                <option value="">Select start point</option>
+                <option value="KRAGUJEVAC" >KRAGUJEVAC</option>
+                <option value="NIS" >NIS</option>
+                <option value="BELGRADE" >BELGRADE</option>
+            </select>
+
+            <small class="danger" th:if="${#fields.hasErrors('beginCity')}"
+                   th:errors="*{beginCity}"></small>
+
+
+        </div>
+
+        <div class="form-group">
+            <div class="text-white label-holder d-flex justify-content-center">
+                <label for="to" class="h4 mb-2">To</label>
+            </div>
+            <select class="browser-default custom-select" id="to" th:field="*{endCity}">
+                <option value="">Select end point</option>
+                <option value="KRAGUJEVAC" >KRAGUJEVAC</option>
+                <option value="NIS" >NIS</option>
+                <option value="BELGRADE" >BELGRADE</option>
+            </select>
+
+            <small class="danger" th:if="${#fields.hasErrors('endCity')}"
+                   th:errors="*{endCity}"></small>
+
+
+        </div>
+
+        <div class="form-group">
+            <div class="text-white label-holder d-flex justify-content-center">
+                <label for="car" class="h4 mb-2">Car type</label>
+            </div>
+            <select class="browser-default custom-select" id="car" th:field="*{car}">
+                <option value="">Select car type</option>
+                <option value="REGULAR" >REGULAR</option>
+                <option value="VAN" >VAN</option>
+                <option value="CARGO" >CARGO</option>
+            </select>
+
+            <small class="danger" th:if="${#fields.hasErrors('car')}"
+                   th:errors="*{car}"></small>
+
+
+        </div>
+
+        <div class="form-group">
+            <div class="text-white label-holder d-flex justify-content-center">
+                <label for="payment" class="h4 mb-2">Payment method</label>
+            </div>
+            <select class="browser-default custom-select" id="payment" th:field="*{paymentMethod}">
+                <option value="">Select payment method</option>
+                <option value="CASH" >CASH</option>
+                <option value="CARD" >CARD</option>
+            </select>
+
+            <small class="danger" th:if="${#fields.hasErrors('paymentMethod')}"
+                   th:errors="*{paymentMethod}"></small>
+        </div>
+
+        <div class="button-holder d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary btn-lg">ORDER TAXI</button>
+        </div>
+
+
+    </form>
+</main>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>

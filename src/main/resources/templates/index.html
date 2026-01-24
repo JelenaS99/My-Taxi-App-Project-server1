@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head}"></head>
+<body>
+<header th:replace="~{fragments/commons::nav}"></header>
+<main>
+<!--    <div class="container bg-blur rounded mt-5 ">-->
+    <div class="welcome">
+        <h1>Welcome to Taxi ordering aplication</h1>
+        <hr class="my-3 bg-white w-50"/>
+
+        <p class="h4">
+            "Taxi ordering" is an app designed for all who are seeking modern way for ordering taxi,<br>
+            without calling, just with few clicks.
+        </p>
+        <hr class="my-3 bg-white w-75"/>
+
+        <h3>
+            <a class="primary-text" href="/login/login">Login</a>
+            if you have an account or<br>
+            <a class="primary-text" href="/register/register">Register</a>
+            now and discover a way of easy taxi ordering.
+        </h3>
+    </div>
+</main>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>

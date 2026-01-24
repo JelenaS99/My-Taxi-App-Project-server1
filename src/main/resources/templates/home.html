@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{fragments/commons::head}"></head>
+<body>
+<header th:replace="~{fragments/commons::nav}"></header>
+<main>
+<!--    <div class="container bg-blur rounded mt-5 ">-->
+    <div class="welcome">
+        <h1>Welcome <span sec:authentication="name"></span></h1>
+        <hr class="my-3 bg-white w-50"/>
+        <br>
+        <br>
+        <p class="h4">
+            You are at level <span th:text="${level}"></span> at the moment.
+
+        </p>
+        <br>
+        <h6>
+            Find out more about
+            <a class="primary-text" href="/levels">Levels</a>
+            .
+
+        </h6>
+        <br>
+        <br>
+
+        <div class="button-holder d-flex justify-content-center">
+            <a href="/order-taxi" class="btn btn-primary btn-lg">
+                ORDER TAXI
+            </a>
+        </div>
+        <br>
+        <div class="button-holder d-flex justify-content-center">
+            <a href="/history" class="btn btn-primary btn-lg">
+                Show my history
+            </a>
+        </div>
+
+    </div>
+</main>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>

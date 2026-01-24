@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/commons::head}"></head>
+<body>
+<header th:replace="~{fragments/commons::nav}"></header>
+<main>
+    <!--    <div class="container bg-blur rounded mt-5 ">-->
+    <div class="welcome">
+        <h1>More about Levels</h1>
+        <hr class="my-3 bg-white w-50"/>
+
+        <p class="h4">
+        <h3>
+            Standard
+        </h3>
+        <h5>
+        Users with less than 3 rides start at the Standard level.<br>
+        This level gives access to basic features and reliable taxi service for everyday travel.
+        </h5>
+        <br>
+        <h3>
+            Silver
+        </h3>
+        <h5>
+        After 3 rides, users reach the Silver level.<br>
+        Silver members enjoy occasional ride discounts as a reward for their loyalty.
+        </h5>
+        <br>
+        <h3>
+            Gold
+        </h3>
+        <h5>
+        Users with more than 6 completed rides achieve Gold status.<br>
+        Gold members receive premium benefits such as exclusive offers and faster ride matching.
+        </h5>
+        </p>
+
+        <hr class="my-3 bg-white w-50"/>
+
+    </div>
+</main>
+<footer th:replace="~{fragments/commons::footer}"></footer>
+</body>
+</html>
