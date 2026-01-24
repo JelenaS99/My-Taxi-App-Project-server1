@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -95,5 +96,39 @@ public class UserClientService {
 
         return Arrays.asList(response.getBody());
     }
+
+    public void deleteRidesOlderThanMinutes(int minutes) {
+        try {
+            ResponseEntity<RideDto[]> response =
+                    restTemplate.getForEntity(
+                            "http://localhost:8095/api/rides/getAllRides",
+                            RideDto[].class
+                    );
+
+            RideDto[] rides = response.getBody();
+
+            if (rides != null && rides.length > 0) {
+
+                LocalDateTime cutoff = LocalDateTime.now().minusMinutes(minutes);
+
+                for (RideDto ride : rides) {
+
+                    if (ride.getDateTime().isBefore(cutoff)) {
+                        restTemplate.delete(
+                                "http://localhost:8095/api/rides/{id}",
+                                ride.getId()
+                        );
+                    }
+                }
+            }
+
+
+
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 
 }
