@@ -9,6 +9,12 @@
 <!--    <div class="container bg-blur rounded mt-5 ">-->
     <div class="welcome">
         <h1>Welcome <span sec:authentication="name"></span></h1>
+
+        <p th:if="${lastVisitFormatted != null}" class="last-visit">
+            Last visit: <span th:text="${lastVisitFormatted}"></span>
+        </p>
+
+
         <hr class="my-3 bg-white w-50"/>
         <br>
         <br>
